@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アプリ名 - Every Fit</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <header id="common-header"></header>
+
+    <div class="container" style="text-align: center;">
+        <img src="../../images/placeholder.png" alt="Icon" style="width: 120px; height: 120px; border-radius: 24px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+
+        <h2>About App</h2>
+        <p></p>
+
+        <ul class="app-features" style="text-align: left; display: inline-block;">
+            <li>特徴1</li>
+            <li>特徴2</li>
+            <li>特徴3</li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="URL_HERE" target="_blank">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="Download" style="width: 200px;">
+            </a>
+        </div>
+    </div>
+
+    <footer id="common-footer"></footer>
+
+    <script>
+        function loadHTML(id, url) {
+            fetch(url).then(res => res.text()).then(data => document.getElementById(id).innerHTML = data);
+        }
+        loadHTML('common-header', '/header.html');
+        loadHTML('common-footer', '/footer.html');
+    </script>
+</body>
+</html>

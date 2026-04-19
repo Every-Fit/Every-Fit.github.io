@@ -69,3 +69,17 @@ footer a {
 footer a:hover {
     color: var(--accent-color);
 }
+/* Every-Fit.github.io/css/style.css への追記 */
+
+.app-features {
+    display: inline-block; /* 塊として中央に寄せるため */
+    text-align: left;      /* 中身のテキストは左揃えにする */
+    margin: 20px 0;
+    padding-left: 20px;    /* 箇条書きのポッチ分の余白 */
+}
+
+.app-features li {
+    margin-bottom: 12px;   /* 各項目の間にゆとりを持たせる */
+    list-style-type: "・";  /* ポッチを少しモダンな感じに（お好みで） */
+    padding-left: 10px;
+}

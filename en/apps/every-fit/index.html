@@ -7,26 +7,34 @@
     <link rel="stylesheet" href="../../../css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Every Fit</h1>
-        <p>Weight management, made simpler.</p>
-    </header>
+    <header id="common-header"></header>
     <div class="container" style="text-align: center;">
-        <img src="../../../images/every_fit.jpg" alt="Every Fit Icon" style="width: 120px; height: 120px; border-radius: 24px; margin-bottom: 20px;">
+        <img src="../../../images/every_fit.png" alt="Every Fit Icon" style="width: 120px; height: 120px; border-radius: 24px; margin-bottom: 20px;">
         <h2>About App</h2>
         <p>Every Fit is a weight management app designed for stress-free daily tracking, built with Flutter.</p>
-        <ul style="text-align: left; display: inline-block;">
+        <ul class="app-features" style="text-align: left; display: inline-block;">
             <li>Intuitive user experience</li>
             <li>Beautiful progress charts</li>
             <li>Minimalist design focusing on what matters</li>
         </ul>
-        <p style="text-align: center; margin-top: 40px; color: #999;">Available on the App Store</p>
+        <div style="text-align: center; margin-top: 40px;">
+                        <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank">
+                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="height: 35px;">
+                        </a>
+        </div>
     </div>
-    <footer>
-        <a href="../../">Home</a>
-        <a href="../../legal/privacy-policy/">Privacy Policy</a>
-        <a href="../../../contact/">Contact</a>
-        <p style="margin-top: 20px;">&copy; 2026 Every Fit</p>
-    </footer>
+    <footer id="common-footer"></footer>
+
+    <script>
+        //
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        // 必ず先頭に / をつけてルートから読み込む
+        loadHTML('common-header', '/header.html');
+        loadHTML('common-footer', '/footer.html');
+    </script>
 </body>
 </html>
