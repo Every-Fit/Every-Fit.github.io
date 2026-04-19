@@ -7,18 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Every Fit</h1>
-        <p class="mission">for others, with others</p>
-        <div style="text-align: right; font-size: 0.8em; padding-right: 20px;">
-    <a href="en/" style="color: #999;">English</a>
-</div>
-    </header>
+    <header id="common-header"></header>
 
     <div class="container">
-        <section>
+       <section>
             <h2>Our Vision</h2>
-            <p>全ての人が、無理なく、自分らしく、健康を管理できる世界を。私たちは「使いやすさ」と「寄り添い」を第一に、モバイルアプリケーションを開発しています。</p>
+            <p>全ての人が、無理なく、自分らしく、健康を管理できる世界を。</p>
+            <p>私たちは「使いやすさ」と「寄り添い」を第一に、モバイルアプリケーションを開発しています。</p>
         </section>
 
         <section style="margin-top: 60px;">
@@ -28,19 +23,29 @@
 
                 <div>
                     <h3>Every Fit</h3>
-                    <p>シンプルで続けやすい体重管理アプリ。現在App Storeにて公開中。</p>
-                    <a href="apps/every-fit/" style="color: white;">詳細を見る →</a>
+                    <p>シンプルで続けやすい体重管理アプリ。</p>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+                        <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank">
+                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Storeからダウンロード" style="height: 35px;">
+                        </a>
+                        <a href="apps/every-fit/" style="color: var(--sub-text); text-decoration: none; font-size: 0.9em;">詳細を見る →</a>
+
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
- <footer>
-        <p>&copy; 2026 Every Fit</p>
-        <nav>
-            <a href="legal/privacy-policy/">Privacy Policy</a>
-            <a href="legal/terms/">Terms</a>
-            <a href="contact/">Contact</a>
-        </nav>
-    </footer></body>
+    <footer id="common-footer"></footer>
+
+    <script>
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        loadHTML('common-header', '/header.html');
+        loadHTML('common-footer', '/footer.html');
+    </script>
+</body>
 </html>

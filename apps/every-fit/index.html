@@ -6,10 +6,7 @@
     <title>Every Fit - アプリ紹介</title>
     <link rel="stylesheet" href="../../css/style.css"> </head>
 <body>
-    <header>
-        <h1>Every Fit</h1>
-        <p>体重管理を、もっとシンプルに。</p>
-    </header>
+    <header id="common-header"></header>
 
     <div class="container" style="text-align: center;">
         <img src="../../images/every_fit.png" alt="Every Fit Icon" style="width: 120px; height: 120px; border-radius: 24px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
@@ -20,14 +17,23 @@
             <li>美しいグラフ表示</li>
             <li>余計な機能を削ぎ落としたシンプル設計</li>
         </ul>
-        <p style="text-align: center; margin-top: 40px; color: #999;">Coming Soon on App Store</p>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Storeからダウンロード" style="width: 200px;">
+            </a>
+        </div>
     </div>
 
-<footer>
-        <a href="../../">Home</a>
-        <a href="../../legal/privacy-policy/">Privacy Policy</a>
-        <a href="../../contact/">Contact</a>
-        <p style="margin-top: 20px;">&copy; 2026 Every Fit</p>
-    </footer>
+    <footer id="common-footer"></footer>
+
+    <script>
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        loadHTML('common-header', '/header.html');
+        loadHTML('common-footer', '/footer.html');
+    </script>
 </body>
 </html>

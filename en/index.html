@@ -7,37 +7,43 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header>
-        <div style="text-align: right; font-size: 0.8em; padding-right: 20px;">
-            <a href="../" style="color: #999;">日本語</a>
-        </div>
-        <h1>Every Fit</h1>
-        <p class="mission">for others, with others</p>
-    </header>
+    <header id="common-header"></header>
     <div class="container">
         <section>
             <h2>Our Vision</h2>
-            <p>A world where everyone can manage their health in their own way, without strain. We develop mobile applications with "ease of use" and "empathy" as our core values.</p>
+            <p>A world where everyone can manage their health in their own way, without strain.</p>
+            <p>Develop mobile applications with "ease of use" and "empathy" as our core values.</p>
         </section>
         <section style="margin-top: 60px;">
             <h2>Applications</h2>
             <div class="app-card" style="display: flex; align-items: center; gap: 20px;">
-                <img src="../images/every_fit.jpg" alt="Every Fit Icon" style="width: 80px; height: 80px; border-radius: 18px;">
+                <img src="../images/every_fit.png" alt="Every Fit Icon" style="width: 80px; height: 80px; border-radius: 18px;">
                 <div>
                     <h3>Every Fit</h3>
                     <p>A simple and sustainable weight management app. Currently available on the App Store.</p>
-                    <a href="apps/every-fit/" style="color: white;">View Details →</a>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+                        <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank">
+                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="height: 35px;">
+                        </a>
+                        <a href="apps/every-fit/" style="color: var(--sub-text); text-decoration: none; font-size: 0.9em;">View Details →</a>
+
+                    </div>
                 </div>
             </div>
         </section>
     </div>
-    <footer>
-        <p>&copy; 2026 Every Fit</p>
-        <nav>
-            <a href="legal/privacy-policy/">Privacy Policy</a>
-            <a href="legal/terms/">Terms</a>
-            <a href="../contact/">Contact</a>
-        </nav>
-    </footer>
+    <footer id="common-footer"></footer>
+
+    <script>
+        //
+        function loadHTML(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+        // 必ず先頭に / をつけてルートから読み込む
+        loadHTML('common-header', '/header.html');
+        loadHTML('common-footer', '/footer.html');
+    </script>
 </body>
 </html>

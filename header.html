@@ -1,0 +1,97 @@
+<div class="header-inner">
+    <div class="header-top">
+        <div class="logo">
+            <a href="/">Every Fit</a>
+        </div>
+        <nav class="header-nav">
+            <a href="/">JP</a>
+            <span class="nav-divider">/</span>
+            <a href="/en/">EN</a>
+        </nav>
+    </div>
+
+    <div class="mission-container">
+        <p class="mission-text">for others, with others</p>
+        <div class="mission-line"></div>
+    </div>
+</div>
+
+<style>
+    header {
+        padding: 40px 0 60px 0; /* 下に余白を持たせて理念を際立たせる */
+        background: var(--bg-color);
+    }
+
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    .logo a {
+        font-size: 1.8rem;
+        font-weight: 200; /* 極細にして高級感を出す */
+        letter-spacing: 0.15em;
+        text-decoration: none;
+        color: var(--accent-color);
+        transition: opacity 0.3s;
+    }
+
+    .logo a:hover {
+        opacity: 0.7;
+    }
+
+    .header-nav {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+    }
+
+    .header-nav a {
+        color: var(--sub-text);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .header-nav a:hover {
+        color: var(--accent-color);
+    }
+
+    .nav-divider {
+        color: #333;
+        margin: 0 8px;
+    }
+
+    /* 理念部分の強化デザイン */
+    .mission-container {
+        text-align: center;
+        margin-top: 50px;
+        position: relative;
+    }
+
+    .mission-text {
+        font-family: 'Georgia', serif; /* 理念だけセリフ体にして「哲学」を感じさせる */
+        font-style: italic;
+        font-weight: 200;
+        font-size: 1.2rem;
+        letter-spacing: 0.25em; /* 文字間隔を広げて空気感を作る */
+        color: #fff;
+        margin: 0;
+        opacity: 0;
+        animation: fadeInMission 1.5s ease-out forwards; /* じわっと表示させる */
+    }
+
+    .mission-line {
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #666, transparent);
+        margin: 15px auto 0;
+    }
+
+    @keyframes fadeInMission {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 0.6; transform: translateY(0); }
+    }
+</style>
