@@ -1,0 +1,71 @@
+/* 基本のマットブラック設定 */
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #ffffff;
+    --sub-text: #999999;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+h1, h2 {
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 理念のセクション */
+.mission {
+    font-style: italic;
+    color: var(--sub-text);
+    margin-bottom: 40px;
+}
+
+/* アプリ紹介カード */
+.app-card {
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.app-card:hover {
+    border-color: #666;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 0.8em;
+    color: var(--sub-text);
+    border-top: 1px solid #333;
+}
+
+footer a {
+    color: var(--sub-text);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
