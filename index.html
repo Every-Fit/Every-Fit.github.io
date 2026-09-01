@@ -1,51 +1,117 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Every Fit | Official Site</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="全ての人が、無理なく、自分らしく、健康を管理できる世界を。Every Fit 公式Webサイト。">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <header id="common-header"></header>
 
-    <div class="container">
-       <section>
-            <h2>Our Vision</h2>
-            <p>全ての人が、無理なく、自分らしく、健康を管理できる世界を。</p>
-            <p>私たちは「使いやすさ」と「寄り添い」を第一に、モバイルアプリケーションを開発しています。</p>
-        </section>
+    <main>
+        <div class="container">
+            <!-- Hero Statement -->
+            <div class="hero-statement">
+                <div class="section-label">Vision & Philosophy</div>
+                <h1 class="mission-tagline">
+                    For others, <span class="text-gradient">With others.</span>
+                </h1>
+                <p class="mission-desc">
+                    全ての人が、無理なく、自分らしく、健康を管理できる世界を。<br>
+                    私たちは「使いやすさ」と「日々の寄り添い」を第一に<br>
+                    心を満たすモバイルアプリケーションを開発しています。
+                </p>
+            </div>
 
-        <section style="margin-top: 60px;">
-            <h2>Applications</h2>
-            <div class="app-card" style="display: flex; align-items: center; gap: 20px;">
-                <img src="images/every_fit.png" alt="Every Fit Icon" style="width: 80px; height: 80px; border-radius: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            <!-- Featured Application -->
+            <section>
+                <div style="margin-bottom: 24px;">
+                    <div class="section-label">Featured Product</div>
+                    <h2>Our Applications</h2>
+                </div>
 
-                <div>
-                    <h3>Every Fit</h3>
-                    <p>シンプルで続けやすい体重管理アプリ。</p>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-                        <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83" alt="App Storeからダウンロード" style="height: 35px;">
-                        </a>
-                        <a href="apps/every-fit/" style="color: var(--sub-text); text-decoration: none; font-size: 0.9em;">詳細を見る →</a>
+                <div class="app-hero-card">
+                    <img src="/images/every_fit.png" alt="Every Fit App Icon" class="app-icon">
 
+                    <div class="app-info">
+                        <div class="app-info-header">
+                            <h3>Every Fit</h3>
+                            <span class="badge-status">iOS Available</span>
+                        </div>
+                        <p>
+                            日々の体重・健康記録をストレスなく続けられる、ミニマルで美しい体重管理アプリ。<br>
+                            習慣化を自然に後押しする直感的なUIと、モチベーションを高めるグラフ体験を提供します。
+                        </p>
+
+                        <div class="app-actions">
+                            <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank"
+                                rel="noopener noreferrer" class="app-store-badge">
+                                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83"
+                                    alt="App Storeからダウンロード">
+                            </a>
+                            <a href="/apps/every-fit/" class="btn-detail">
+                                機能を見る
+                                <span style="font-size: 1.1em; line-height: 1;">&rarr;</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+
+            <!-- Product Highlights Grid -->
+            <section>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-box">⚡</div>
+                        <h4>圧倒的に軽快な入力</h4>
+                        <p>アプリを開いて数秒で記録完了。日々の記録が苦にならない、無駄を削ぎ落としたスムーズな操作感。</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box">📈</div>
+                        <h4>直感的なグラフ・分析</h4>
+                        <p>体重の推移や目標までのペースをひと目で把握。自分の変化が直感的に伝わり、モチベーションが続きます。</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box">🔒</div>
+                        <h4>安心のプライバシー配慮</h4>
+                        <p>健康データは大切な個人情報。プライバシーを最優先に考え、安心して日々の生活に取り入れられます。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <footer id="common-footer"></footer>
 
     <script>
         function loadHTML(id, url) {
             fetch(url)
-                .then(response => response.text())
-                .then(data => document.getElementById(id).innerHTML = data);
+                .then(response => {
+                    if (!response.ok) throw new Error('Network error');
+                    return response.text();
+                })
+                .then(data => {
+                    var el = document.getElementById(id);
+                    if (el) el.innerHTML = data;
+                    // ヘッダー内のスクリプトを実行
+                    if (id === 'common-header') {
+                        var scripts = el.getElementsByTagName('script');
+                        for (var i = 0; i < scripts.length; i++) {
+                            eval(scripts[i].innerText);
+                        }
+                    }
+                })
+                .catch(err => console.error(err));
         }
         loadHTML('common-header', '/header.html');
         loadHTML('common-footer', '/footer.html');
     </script>
 </body>
+
 </html>

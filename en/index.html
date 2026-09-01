@@ -1,49 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Every Fit | Official Site</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description"
+        content="A world where everyone can manage their health in their own way, without strain. Every Fit Official Site.">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <header id="common-header"></header>
-    <div class="container">
-        <section>
-            <h2>Our Vision</h2>
-            <p>A world where everyone can manage their health in their own way, without strain.</p>
-            <p>Develop mobile applications with "ease of use" and "empathy" as our core values.</p>
-        </section>
-        <section style="margin-top: 60px;">
-            <h2>Applications</h2>
-            <div class="app-card" style="display: flex; align-items: center; gap: 20px;">
-                <img src="../images/every_fit.png" alt="Every Fit Icon" style="width: 80px; height: 80px; border-radius: 18px;">
-                <div>
-                    <h3>Every Fit</h3>
-                    <p>A simple and sustainable weight management app. Currently available on the App Store.</p>
-                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-                        <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank">
-                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="height: 35px;">
-                        </a>
-                        <a href="apps/every-fit/" style="color: var(--sub-text); text-decoration: none; font-size: 0.9em;">View Details →</a>
 
+    <main>
+        <div class="container">
+            <!-- Hero Statement -->
+            <div class="hero-statement">
+                <div class="section-label">Vision & Philosophy</div>
+                <h1 class="mission-tagline">
+                    For others, <span class="text-gradient">With others.</span>
+                </h1>
+                <p class="mission-desc">
+                    A world where everyone can manage their health in their own way, without strain.<br>
+                    We develop thoughtful mobile applications with "ease of use" and "empathy" as our core principles.
+                </p>
+            </div>
+
+            <!-- Featured Application -->
+            <section>
+                <div style="margin-bottom: 24px;">
+                    <div class="section-label">Featured Product</div>
+                    <h2>Our Applications</h2>
+                </div>
+
+                <div class="app-hero-card">
+                    <img src="/images/every_fit.png" alt="Every Fit App Icon" class="app-icon">
+
+                    <div class="app-info">
+                        <div class="app-info-header">
+                            <h3>Every Fit</h3>
+                            <span class="badge-status">iOS Available</span>
+                        </div>
+                        <p>
+                            A simple, elegant weight tracking app designed to help you build healthy habits
+                            effortlessly.
+                            Experience smooth interactions and insightful visualization that keep you inspired every
+                            single day.
+                        </p>
+
+                        <div class="app-actions">
+                            <a href="https://apps.apple.com/us/app/every-fit/id6760971724" target="_blank"
+                                rel="noopener noreferrer" class="app-store-badge">
+                                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                                    alt="Download on the App Store">
+                            </a>
+                            <a href="/en/apps/every-fit/" class="btn-detail">
+                                Explore Details
+                                <span style="font-size: 1.1em; line-height: 1;">&rarr;</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+
+            <!-- Product Highlights Grid -->
+            <section>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-box">⚡</div>
+                        <h4>Effortless Logging</h4>
+                        <p>Log your daily weight in seconds. A clean, distraction-free interface built to make
+                            habit-tracking enjoyable.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box">📈</div>
+                        <h4>Intuitive Insights</h4>
+                        <p>Clear trend charts and goal pace indicators that help you understand your progress at a
+                            single glance.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-box">🔒</div>
+                        <h4>Privacy First</h4>
+                        <p>Your health data is personal. Built with strong privacy standards so you can track your
+                            journey with confidence.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <footer id="common-footer"></footer>
 
     <script>
-        //
         function loadHTML(id, url) {
             fetch(url)
-                .then(response => response.text())
-                .then(data => document.getElementById(id).innerHTML = data);
+                .then(response => {
+                    if (!response.ok) throw new Error('Network error');
+                    return response.text();
+                })
+                .then(data => {
+                    var el = document.getElementById(id);
+                    if (el) el.innerHTML = data;
+                    if (id === 'common-header') {
+                        var scripts = el.getElementsByTagName('script');
+                        for (var i = 0; i < scripts.length; i++) {
+                            eval(scripts[i].innerText);
+                        }
+                    }
+                })
+                .catch(err => console.error(err));
         }
-        // 必ず先頭に / をつけてルートから読み込む
         loadHTML('common-header', '/header.html');
         loadHTML('common-footer', '/footer.html');
     </script>
 </body>
+
 </html>
